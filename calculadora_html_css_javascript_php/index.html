@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="javascript/script.js"></script>
+
+</head>
+<body>
+
+    <header>
+        <h1>code by Gabriel Rodrigues Franco</h1>
+    </header>
+
+    <main>
+        <div class="mainBackground">
+    
+            <div class="calculatorBlock">
+    
+                <h2>calculator</h2>
+    
+                    <table><!--CALCULATOR BUTTONS-->
+    
+                        <tr><!--CALCULATOR LINE [AC][ ,][ ÷]-->
+                            <td colspan="2"><!--█ AC █-->
+                                <button class="btnNum" style="width:104px;" onclick="AC()">AC</button>
+                            </td>
+
+                            <td><!--█ , █-->
+                                <button  class="btnNum" onclick="insert(',', ',')">,</button>
+                            </td>
+
+                            <td><!--█ ÷ █-->
+                                <button class="btnOperator" onclick="operationHandler('/', '÷')">÷</button>
+                            </td>
+                        </tr>
+
+                        <tr><!--CALCULATOR LINE [7][8][9][X]-->
+                            <td><!--█ 7 █-->
+                                <button class="btnNum" onclick="insert('7')">7</button>
+                            </td>
+    
+                            <td><!--█ 8 █-->
+                                <button class="btnNum" onclick="insert('8')">8</button>
+                            </td>
+    
+                            <td><!--█ 9 █-->
+                                <button class="btnNum" onclick="insert('9')">9</button>
+                            </td>
+    
+                            <td><!--█ X █-->
+                                <button class="btnOperator" onclick="operationHandler('*', 'x')">x</button>
+                            </td>
+                        </tr>
+
+                        <tr><!--CALCULATOR LINE [4][5][6][-]-->
+                            <td><!--█ 4 █-->
+                                <button class="btnNum" onclick="insert('4')">4</button>
+                            </td>
+    
+                            <td><!--█ 5 █-->
+                                <button class="btnNum" onclick="insert('5')">5</button>
+                            </td>
+    
+                            <td><!--█ 6 █-->
+                                <button class="btnNum" onclick="insert('6')">6</button>
+                            </td>
+    
+                            <td><!--█ - █-->
+                                <button class="btnOperator" onclick="operationHandler('-', '-')">-</button>
+                            </td>
+                        </tr>
+
+                        <tr><!--CALCULATOR LINE [1][2][3][+]-->
+                            <td><!--█ 1 █-->
+                                <button class="btnNum" onclick="insert('1')">1</button>
+                            </td>
+
+                            <td><!--█ 2 █-->
+                                <button class="btnNum" onclick="insert('2')">2</button>
+                            </td>
+
+                            <td><!--█ 3 █-->
+                                <button class="btnNum" onclick="insert('3')">3</button>
+                            </td>
+
+                            <td><!--█ + █-->
+                                <button class="btnOperator" onclick="operationHandler('+', '+')">+</button>
+                            </td>
+                        </tr>
+                        
+                        <tr><!--CALCULATOR LINE [0][=]-->
+                            <td colspan="2"><!--█ 0 █-->
+                                <button class="btnNum" style="width:104px;" onclick="insert('0')">0</button>
+                            </td>
+
+                            <!--METHOD 'POST' TO SEND TO connect.php-->
+                            <form method="post" onsubmit="return fecthGo()">
+                                <!--HISTORY LINE 4-->
+                                <p id="histTop"></p>
+
+                                <!--HISTORY LINE 3-->
+                                <p id="histMid"></p>
+
+                                <!--HISTORY LINE 2-->
+                                <p id="histBot"></p>
+
+                                <!--HISTORY LINE 1-->
+                                <input type="text" class="historyDisplay" name="historyDisplay" id="historyDisplay"></input>
+    
+                                <!--CALCULATOR DISPLAY-->
+                                <p type="text" id="resultDisplay" value= >0</p>
+    
+                                <td colspan="2"><!--█ = █-->
+                                    <button type="submit" name="sender" class="btnOperator" style="width:104px;" onclick="result()" >=</button>
+                                </td>
+                            </form><!--END form post method-->
+                        </tr>
+                        
+                    </table><!--END calculator buttons-->
+    
+            </div><!--END calculatorBlock-->
+    
+        </div><!--END mainBackground-->
+
+    </main>
+
+</body>
+</html>
